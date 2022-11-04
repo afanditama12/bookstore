@@ -7,6 +7,7 @@
         <div class="card shadow-lg">
             <div class="card-body">
                 <!-- the form for adding a book -->
+                <!-- enctype for support upload image -->
                 <form method="POST" enctype="multipart/form-data" action="">
                     <!-- this is for securing the form from malicious attacks -->
                     {% csrf_token %}
