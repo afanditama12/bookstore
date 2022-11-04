@@ -7,7 +7,10 @@ from .models import Book
 
 # this is a view for listing all the books
 def home(request):
-    return HttpResponse('Home Page')
+    # retrieving all the books from the database
+    books = Book.objects.all()
+    context = {'books': books}
+    return render(request, 'books/home.html', context)
 
 # this is a view for listing a single book,it will take id as an argument
 def book_detail(request, id):
