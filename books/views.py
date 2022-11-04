@@ -41,7 +41,22 @@ def add_book(request):
 
 # this is a view for editing the book's info
 def edit_book(request):
-    return HttpResponse('Edit Book')
+    # getting the book to be updated
+    book = Book.objects.get(pk=id)
+    # populating the form with the book's information
+    form = EditBookForm(instance=book)
+     # checking if the request is POST
+    if request.method == 'POST':
+        # filling the form with all the request data 
+        form = EditBookForm(request.POST, request.FILES, instance=book)
+        # checking if the form's data is valid
+        if form.is_valid():
+            # saving the data to the database
+            form.save()
+            # redirecting to the home page
+            return redirect('home')
+    context = {'form': form}
+    return render(request, 'books/update-book.html', context)
 
 # this is a view for deleting a book,it will take id as an argument
 def delete_book(request, id):
