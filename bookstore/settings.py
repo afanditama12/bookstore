@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Our created application
-    'books',
+    "books",
 ]
 
 MIDDLEWARE = [
@@ -120,16 +120,15 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 # all images will be located in the images folder inside static folder
-MEDIA_URL = '/images/'
+MEDIA_URL = "/images/"
 
 # The application will find all the image files in the base static folder
-MEDIA_ROOT = BASE_DIR / 'static/'
+MEDIA_ROOT = BASE_DIR / "static/"
 
 # The application will find all the static files in the base static folder
-STATICFILES_DIRS = [ BASE_DIR / 'static' ]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-

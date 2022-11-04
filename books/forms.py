@@ -6,8 +6,8 @@ from django import forms
 
 # declaring the ModelForm
 class EditBookForm(ModelForm):
-	
-	class Meta:
+    
+    class Meta:
         # the Model from which the form will inherit from
         model = Book
         # the fields we want from the Model

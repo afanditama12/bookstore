@@ -4,19 +4,25 @@ from django.db import models
 
 # the Book model with its fields
 class Book(models.Model):
-    title = models.CharField(max_length=100) # set max character / string = 100
-    author = models.CharField(max_length=100) # set max character / string = 100
-    price = models.DecimalField(max_digits=10, decimal_places=2) # set digit / number = 10
-    isbn = models.CharField(max_length=100) # set max character / string = 100
- 	# this is the image for a book, the image will be uploaded to images folder
-    image = models.ImageField(null=False, blank=False, upload_to='images/') # field image 
-    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True) # field created at / dibuat pada / format tanggal
+    title = models.CharField(max_length=100)  # set max character / string = 100
+    author = models.CharField(max_length=100)  # set max character / string = 100
+    price = models.DecimalField(
+        max_digits=10, decimal_places=2
+    )  # set digit / number = 10
+    isbn = models.CharField(max_length=100)  # set max character / string = 100
+    # this is the image for a book, the image will be uploaded to images folder
+    image = models.ImageField(
+        null=False, blank=False, upload_to="images/"
+    )  # field image
+    created_at = models.DateTimeField(
+        auto_now_add=True, null=True, blank=True
+    )  # field created at / dibuat pada / format tanggal
 
     # this is the string representation
     # what to display after querying a book/books
     def __str__(self):
-        return f'{self.title}'
+        return f"{self.title}"
 
     # this will order the books by date created
     class Meta:
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
