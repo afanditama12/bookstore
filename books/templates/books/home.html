@@ -32,7 +32,8 @@
                         	<!-- this is the book title -->
                             <h4 class="card-text">{{ book.title }}</h4>
                         </div>
-                        <a href="" class="m-2 btn btn-outline-dark btn-sm">View Book</a>
+                        <!-- targeting file depinding with id book -->
+                        <a href="{% url 'book-detail' book.id %}" class="m-2 btn btn-outline-dark btn-sm">View Book</a>
                     </div>
                 </div>
                 {% endfor %}
