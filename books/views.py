@@ -18,7 +18,10 @@ def book_detail(request, id):
 
 # this is a list for adding a book
 def add_book(request):
-    return HttpResponse('Add Book')
+    # querying a particular book by its id
+    book = Book.objects.get(pk=id)
+    context = {'book': book}
+    return render(request, 'books/book-detail.html', context)
 
 # this is a view for editing the book's info
 def edit_book(request):
