@@ -21,10 +21,23 @@ def book_detail(request, id):
 
 # this is a list for adding a book
 def add_book(request):
-    # querying a particular book by its id
-    book = Book.objects.get(pk=id)
-    context = {'book': book}
-    return render(request, 'books/book-detail.html', context)
+    # checking if the method is POST
+    if request.method == 'POST':
+        # getting all the data from the POST request
+        data = request.POST
+        # getting the image
+        image = request.FILES.get('image-file')
+        # creating and saving the book
+        book = Book.objects.create(
+           title = data['title'],
+           author = data['author'],
+           isbn = data['isbn'],
+           price = data['price'],
+           image = image
+        )
+        # going to the home page
+        return redirect('home')
+    return render(request, 'books/add-book.html')
 
 # this is a view for editing the book's info
 def edit_book(request):
