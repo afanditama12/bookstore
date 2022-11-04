@@ -14,7 +14,10 @@ def home(request):
 
 # this is a view for listing a single book,it will take id as an argument
 def book_detail(request, id):
-    return HttpResponse('Book Detail')
+    # querying a particular book by its id
+    book = Book.objects.get(pk=id)
+    context = {'book': book}
+    return render(request, 'books/book-detail.html', context)
 
 # this is a list for adding a book
 def add_book(request):
