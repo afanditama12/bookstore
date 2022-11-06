@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from django.http import HttpResponse
+
 # import models Book
 from .models import Book
 
@@ -53,17 +54,17 @@ def edit_book(request, id):
     # populating the form with the book's information
     form = EditBookForm(instance=book)
     # checking if the request is POST
-    if request.method == 'POST':
-        # filling the form with all the request data 
+    if request.method == "POST":
+        # filling the form with all the request data
         form = EditBookForm(request.POST, request.FILES, instance=book)
         # checking if the form's data is valid
         if form.is_valid():
             # saving the data to the database
             form.save()
             # redirecting to the home page
-            return redirect('home')
-    context = {'form': form}
-    return render(request, 'books/update-book.html', context)
+            return redirect("home")
+    context = {"form": form}
+    return render(request, "books/update-book.html", context)
 
 
 # this is a view for deleting a book,it will take id as an argument

@@ -11,7 +11,7 @@ urlpatterns = [
     # this is the add book url
     path("add-book/", views.add_book, name="add-book"),
     # this is the edit book url
-    path("edit-book/", views.edit_book, name="edit-book"),
+    path("edit-book/<str:id>/", views.edit_book, name="edit-book"),
     # this is the edit book url
     path("delete-book/<str:id>/", views.delete_book, name="delete-book"),
 ]
