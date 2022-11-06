@@ -69,4 +69,13 @@ def edit_book(request, id):
 
 # this is a view for deleting a book,it will take id as an argument
 def delete_book(request, id):
-    return HttpResponse("Delete Book")
+    # getting the book to be deleted
+    book = Book.objects.get(pk=id)
+    # checking if the method is POST
+    if request.method == "POST":
+        # delete the book
+        book.delete()
+        # return to home after a success delete
+        return redirect("home")
+    context = {"book": book}
+    return render(request, "books/delete-book.html", context)
