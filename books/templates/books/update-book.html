@@ -15,7 +15,9 @@
                     <!-- this is for securing the form from malicious attacks -->
                     {% csrf_token %}
 
-                    <p>{{ form }}</p>
+                        <div class="mb-3">
+                            {{ form }}
+                        </div>
 
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-success btn-block mb-4">Update Book</button>
