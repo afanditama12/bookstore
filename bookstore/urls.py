@@ -25,10 +25,15 @@ from django.conf import settings
 # importing conf.urls from static
 from django.conf.urls.static import static
 
+# importing views from subproject
+from django.contrib.auth import views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     # registering books application's urls in project
     path("bookstore/", include("books.urls")),
+    path("accounts/login/", views.LoginView.as_view(), name="login"),
+    path("accounts/logout/", views.LogoutView.as_view(), name="logout"),
 ]
 
 # appending the urls with the static urls
