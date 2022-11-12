@@ -1,5 +1,4 @@
-{% extends 'books/base.html' %}
-
+{% extends 'books/add-book.html' %}
 
 {% block content %}
 <div class="row justify-content-center">
@@ -16,7 +15,7 @@
                     {% csrf_token %}
 
                         <div class="mb-3">
-                            {{ form }}
+                            {{ label }}
                         </div>
 
                     <!-- Submit button -->

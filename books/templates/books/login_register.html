@@ -1,0 +1,19 @@
+<!-- import template from base.html -->
+{% extends 'books/home.html' %}
+
+{% block content %}
+
+<div class="div">
+    <form method="post" action="">
+        <!-- input csrf_token -->
+        {% csrf_token %}
+
+        <label>Username : </label>
+        <input type="text" name="username" placeholder="enter your username" />
+        <label>Password : </label>
+        <input type="text" name="password" placeholder="enter your password" />
+        <input type="submit" value="login" />
+    </form>
+</div>
+
+{% endblock %}

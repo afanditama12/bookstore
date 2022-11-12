@@ -32,8 +32,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # registering books application's urls in project
     path("bookstore/", include("books.urls")),
-    path("accounts/login/", views.LoginView.as_view(), name="login"),
-    path("accounts/logout/", views.LogoutView.as_view(), name="logout"),
 ]
 
 # appending the urls with the static urls

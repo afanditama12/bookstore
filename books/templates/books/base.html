@@ -11,6 +11,16 @@
 </head>
 
 <body>
+
+	<!-- displaying flash messages -->
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		<li></li>{{ message }}</li>
+			{% endfor %}
+	</ul>
+	{% endif %}
+
 	{% block content %}
 
 	{% endblock %}

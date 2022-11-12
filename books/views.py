@@ -8,7 +8,49 @@ from .models import Book
 # import EditBookForm
 from .forms import EditBookForm
 
+# import user from django models library
+from django.contrib.auth.models import User
+
+# import django messages
+from django.contrib import messages
+
+# import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout
+
 # Create your views here.
+
+# this is view for login
+def loginPage(request):
+    # checking if the method is POST
+    if request.method == "POST":
+        # get username data
+        username = request.POST.get("username")
+        # get password data
+        password = request.POST.get("password")
+
+        # check if user exist or not
+        try:
+            # get data from username
+            user = User.objects.get(username=username)
+        except:
+            # if user not exist
+            messages.error(request, "User doesn't exist.")
+
+        # if user does exist
+        user = authenticate(request, username=username, password=password)
+
+        # check if user not empty/none
+        if user is not None:
+            # user success login
+            login(request, user)
+            return redirect("home")
+        else:
+            # if user not login
+            messages.error(request, "Username or Password doesn't exist.")
+
+    context = {}
+    return render(request, "books/login_register.html", context)
+
 
 # this is a view for listing all the books
 def home(request):
