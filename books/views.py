@@ -17,6 +17,7 @@ from django.contrib import messages
 # import authenticate, login, logout
 from django.contrib.auth import authenticate, login, logout
 
+
 # Create your views here.
 
 # this is view for login
@@ -50,6 +51,14 @@ def loginPage(request):
 
     context = {}
     return render(request, "books/login_register.html", context)
+
+
+# this is a view for logout
+def logoutPage(request):
+    # send data request of process logout
+    logout(request)
+    # if logout success
+    return redirect('home')
 
 
 # this is a view for listing all the books

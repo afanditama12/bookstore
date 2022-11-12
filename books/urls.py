@@ -6,6 +6,8 @@ from . import views
 urlpatterns = [
     # this is the login url
     path("login/", views.loginPage, name="login"),
+    # this is the login url
+    path("logout/", views.logoutPage, name="logout"),
     # this is the home url
     path("", views.home, name="home"),
     # this is the single book url
