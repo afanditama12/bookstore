@@ -17,6 +17,9 @@ from django.contrib import messages
 # import authenticate, login, logout
 from django.contrib.auth import authenticate, login, logout
 
+# import login required from django decorators
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -76,7 +79,8 @@ def book_detail(request, id):
     context = {"book": book}
     return render(request, "books/book-detail.html", context)
 
-
+# add decorator for restricted user
+@login_required(login_url='login')
 # this is a list for adding a book
 def add_book(request):
     # checking if the method is POST
