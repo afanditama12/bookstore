@@ -15,11 +15,11 @@
                     <li class="list-group-item px-3"><a href="">Home</a></li>
                     <!-- check input of user is authenticated -->
                     {% if request.user.is_authenticated %}
-                    <!-- login link -->
-                    <li class="list-group-item px-3"><a href="{% url 'login' %}">Login</a></li>
+                        <!-- logout link -->
+                        <li class="list-group-item px-3"><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
-                    <!-- logout link -->
-                    <li class="list-group-item px-3"><a href="{% url 'logut' %}">Logout</a></li>
+                        <!-- login link -->
+                        <li class="list-group-item px-3"><a href="{% url 'login' %}">Login</a></li>
                     {% endif %}
                 </ul>
                 <!-- add book link -->
