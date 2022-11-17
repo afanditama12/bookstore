@@ -3,17 +3,41 @@
 
 {% block content %}
 
-<div class="div">
-    <form method="post" action="">
-        <!-- input csrf_token -->
-        {% csrf_token %}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <a href="{% url 'home' %}" class="my-3 btn btn-dark btn-sm">Go Back</a>
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <form class="form" action="" method="POST">
+                    {% csrf_token %}
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" name="username" class="form-control" />
+                        <label class="form-label" for="username">Username</label>
+                    </div>
 
-        <label>Username : </label>
-        <input type="text" name="username" placeholder="enter your username" />
-        <label>Password : </label>
-        <input type="text" name="password" placeholder="enter your password" />
-        <input type="submit" value="login" />
-    </form>
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" name="password" class="form-control" />
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4" value="login">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
+
+<!-- <form method="post" action="">
+                    {% csrf_token %}
+
+                    <label>Username : </label>
+                    <input type="text" name="username" placeholder="enter your username" />
+                    <label>Password : </label>
+                    <input type="text" name="password" placeholder="enter your password" />
+                    <input type="submit" value="login" />
+                </form> -->
