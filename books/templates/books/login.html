@@ -1,0 +1,32 @@
+<!-- import template from base.html -->
+{% extends 'books/home.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <a href="{% url 'home' %}" class="my-3 btn btn-dark btn-sm">Go Back</a>
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <form class="form" action="" method="POST">
+                    {% csrf_token %}
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" name="username" class="form-control" />
+                        <label class="form-label" for="username">Username</label>
+                    </div>
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" name="password" class="form-control" />
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4" value="login">Login</button>
+                    <!-- Register link -->
+                    <div class="text-center">
+                        <p>Not a member? <a href="{% url 'register' %}">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
