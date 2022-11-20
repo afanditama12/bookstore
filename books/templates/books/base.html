@@ -2,28 +2,24 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Book Store</title>
-	<!-- CSS only -->
-	<link rel="stylesheet" type="text/css"
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Store</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-
-	<!-- displaying flash messages -->
-	{% if messages %}
-	<ul class="messages">
-		{% for message in messages %}
-		<li></li>{{ message }}</li>
-			{% endfor %}
-	</ul>
-	{% endif %}
-
-	{% block content %}
-
-	{% endblock %}
+    <!-- displaying flash messages -->
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li></li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
 </body>
 
 </html>

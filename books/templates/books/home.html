@@ -1,9 +1,7 @@
 <!-- inheriting from the base file -->
 {% extends 'books/base.html' %}
-
 <!-- this will help render the images -->
 {% load static %}
-
 {% block content %}
 <div class="container mb-4">
     <div class="row">
@@ -15,11 +13,11 @@
                     <li class="list-group-item px-3"><a href="">Home</a></li>
                     <!-- check input of user is authenticated -->
                     {% if request.user.is_authenticated %}
-                        <!-- logout link -->
-                        <li class="list-group-item px-3"><a href="{% url 'logout' %}">Logout</a></li>
+                    <!-- logout link -->
+                    <li class="list-group-item px-3"><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
-                        <!-- login link -->
-                        <li class="list-group-item px-3"><a href="{% url 'login' %}">Login</a></li>
+                    <!-- login link -->
+                    <li class="list-group-item px-3"><a href="{% url 'login' %}">Login</a></li>
                     {% endif %}
                 </ul>
                 <!-- add book link -->
